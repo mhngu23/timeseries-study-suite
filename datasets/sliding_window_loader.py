@@ -6,6 +6,8 @@ class SlidingWindowDataset(Dataset):
         # Convert pandas DataFrame/Series to torch.Tensor directly
         self.X = torch.tensor(X.values, dtype=torch.float32) if hasattr(X, "values") else torch.tensor(X, dtype=torch.float32)
         self.y = torch.tensor(y.values, dtype=torch.float32) if hasattr(y, "values") else torch.tensor(y, dtype=torch.float32)
+        print(self.X.shape)
+        exit()
         self.input_len = input_len
         self.pred_len = pred_len
 

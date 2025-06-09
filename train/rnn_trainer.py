@@ -7,7 +7,7 @@ from train.train_loop import train_model
 
 # ✅ Load processed data
 train_path = "data/processed/ETTh1/train.csv"
-X, y = load_processed_ett(train_path)
+X, y = load_processed_ett(train_path, target_col="OT", use_target=False)
 
 # print(X.shape, y.shape)  # Debugging output to check shapes
 # Sliding window setup
