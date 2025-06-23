@@ -34,8 +34,8 @@ timeseries-study-suite/
 │   └── model_config.yaml
 ├── data/
 │   ├── raw/
-│   └── processed/
-│   ├── loaders/
+│   ├── processed/
+│   └── loaders/
 ├── models/
 │   ├── classic/          # RNN, vanilla Transformer
 │   ├── linear/           # DLinear
@@ -43,16 +43,13 @@ timeseries-study-suite/
 │   ├── mixer/            # TimeMixer, TSMixer, PatchTST
 │   ├── mamba/            # Mamba, MICN
 ├── datasets/
-│   └── utils.py
+│   └── sliding_window_loader.py
 ├── train/
+│   ├── rnn_trainer.py
 │   ├── train_loop.py
 │   └── trainer_utils.py
-├── experiments/
-│   └── run_experiment.py
 ├── notebooks/
-│   └── exploratory_analysis.ipynb
-└── utils/
-    └── metrics.py
+│   └── visualization.ipynb
 ```
 
 ---
@@ -104,7 +101,12 @@ conda create -n ts-study-env python=3.9 -y
 conda activate ts-study-env
 pip install -r requirements.txt
 ```
+
+## Example
+
 ```
-PYTHONPATH=. python train/rnn_trainer.py
+PYTHONPATH=. python train_scripts/rnn_trainer.py     --train_path data/processed/ETTh1/train.csv     --val_path data/processed/ETTh1/val.csv     --save_path /scratch/s223669184/timeseries-study-suite/checkpoints     --model_name rnn_lstm_etth1.pt     --input_len 96     --pred_len 1     --epochs 100     --batch_size 64     --lr 1e-5     --hidden_dim 128     --num_layers 3     --rnn_type lstm     --pa
+tience 20
 ```
+
 ---
