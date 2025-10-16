@@ -105,8 +105,36 @@ pip install -r requirements.txt
 ## Example
 
 ```
-PYTHONPATH=. python train_scripts/rnn_trainer.py     --train_path data/processed/ETTh1/train.csv     --val_path data/processed/ETTh1/val.csv     --save_path /scratch/s223669184/timeseries-study-suite/checkpoints     --model_name rnn_lstm_etth1.pt     --input_len 96     --pred_len 1     --epochs 100     --batch_size 64     --lr 1e-5     --hidden_dim 128     --num_layers 3     --rnn_type lstm     --pa
-tience 20
+PYTHONPATH=. python train_scripts/rnn_trainer.py \    --train_path data/processed/ETTh1/train.csv \    --val_path data/processed/ETTh1/val.csv  \
+--save_path /scratch/s223669184/timeseries-study-suite/checkpoints    \
+--model_name rnn_lstm_etth1.pt   \
+--input_len 96   \
+--pred_len 1  \
+--epochs 100  \
+--batch_size 64   \
+--lr 1e-5  \
+--hidden_dim 128  \
+--num_layers 3   \
+--rnn_type lstm  \
+--patience 20
+
+
+PYTHONPATH=. python train_scripts/transformer_trainer.py \
+--train_path data/processed/ETTh1/train.csv \
+--val_path data/processed/ETTh1/val.csv \
+--save_path /scratch/s223669184/timeseries-study-suite/checkpoints \
+--model_name transformer_etth1.pt \
+--input_len 96 \
+--pred_len 1 \
+--epochs 100 \
+--batch_size 64 \
+--lr 1e-5 \
+--hidden_dim 128 \
+--num_layers 3 \
+--nhead 4 \
+--dim_feedforward 512 \
+--dropout 0.1 \
+--patience 20
 ```
 
 ---
